@@ -1,0 +1,20 @@
+{
+  "name": "file-writing-rules",
+  "description": "Marketplace for file-writing skills library",
+  "owner": {
+    "name": "Orr Bibring",
+    "email": "orr@hey.com"
+  },
+  "plugins": [
+    {
+      "name": "file-writing-rules",
+      "description": "Apply file writing rules based on file location.",
+      "version": "1.0.0",
+      "source": "./",
+      "author": {
+        "name": "Orr Bibring",
+        "email": "orr@hey.com"
+      }
+    }
+  ]
+}
