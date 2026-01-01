@@ -9,7 +9,7 @@
     {
       "name": "file-writing-rules",
       "description": "Hierarchical file writing rules system for enforcing coding best practices based on directory structure and file types",
-      "version": "2.0.1",
+      "version": "2.0.2",
       "source": "./",
       "author": {
         "name": "Orr Bibring",
