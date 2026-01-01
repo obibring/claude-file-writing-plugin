@@ -1,5 +1,6 @@
 # Settings files (user-specific configuration)
 .claude/*.local.md
+.serena
 
 # Generated rules files
 .claude/*.generated.json
