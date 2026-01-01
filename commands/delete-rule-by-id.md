@@ -38,7 +38,7 @@ Use the rules engine script:
 
 ```bash
 # Delete rule by ID
-node $CLAUDE_PLUGIN_ROOT/scripts/rules-engine.js delete-rule-by-id --id "<id>"
+node ${__dirname}/../scripts/rules-engine.js delete-rule-by-id --id "<id>"
 ```
 
 ## Output Format

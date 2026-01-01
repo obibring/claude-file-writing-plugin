@@ -51,7 +51,7 @@ If `pathname` and `rule` are both provided as parameters, skip interactive promp
 Use the rules engine script:
 
 ```bash
-node $CLAUDE_PLUGIN_ROOT/scripts/rules-engine.js add-rule \
+node ${__dirname}/../scripts/rules-engine.js add-rule \
   --pathname "<pathname>" \
   --file-types "<file_types>" \
   --rule "<rule_content>"

@@ -28,10 +28,10 @@ Use the rules engine script:
 
 ```bash
 # List all file types
-node $CLAUDE_PLUGIN_ROOT/scripts/rules-engine.js list-file-types
+node ${__dirname}/../scripts/rules-engine.js list-file-types
 
 # With max age filter
-node $CLAUDE_PLUGIN_ROOT/scripts/rules-engine.js list-file-types --max-age "<max_age>"
+node ${__dirname}/../scripts/rules-engine.js list-file-types --max-age "<max_age>"
 ```
 
 ## Output Format
