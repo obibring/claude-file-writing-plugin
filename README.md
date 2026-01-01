@@ -15,11 +15,15 @@ This plugin provides a sophisticated rules repository that:
 
 ### Commands
 
-- `/file-writing-rules:add-rule` - Create new rules (interactive or parameterized)
+All commands are thin forwarding layers that delegate to the `managing-file-writing-rules` skill:
+
+- `/file-writing-rules:add-rule` - Create new rules
 - `/file-writing-rules:get-rules` - Retrieve rules by pathname/file types with precedence
 - `/file-writing-rules:list-file-types` - List all unique file types in the system
 - `/file-writing-rules:set-rule-by-id` - Update existing rules by ID
 - `/file-writing-rules:delete-rule-by-id` - Remove rules by ID
+
+Commands provide user-facing entry points, while skills contain all implementation logic. This separation allows skill logic to evolve independently without modifying command interfaces.
 
 ### Skills
 
