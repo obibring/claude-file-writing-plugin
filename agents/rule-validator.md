@@ -40,7 +40,7 @@ Parse the user's request to extract:
 Use the rules engine to fetch rules for the pathname:
 
 ```bash
-node ${__dirname}/../scripts/rules-engine.js get-rules \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules \
   --pathname "<pathname>" \
   [--file-types "<file_type>"]
 ```
@@ -124,7 +124,7 @@ No rules defined for this pathname.
 User: Validate apps/dashboard/Button.tsx against the rules
 
 You:
-1. Run: node ${__dirname}/../scripts/rules-engine.js get-rules --pathname "apps/dashboard" --file-types "typescript"
+1. Run: node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules --pathname "apps/dashboard" --file-types "typescript"
 2. Read file: apps/dashboard/Button.tsx
 3. Analyze code against retrieved rules
 4. Report violations or confirm compliance
@@ -137,7 +137,7 @@ User: Check if this code violates rules for src/utils/helper.ts:
 [code snippet]
 
 You:
-1. Run: node ${__dirname}/../scripts/rules-engine.js get-rules --pathname "src/utils" --file-types "typescript"
+1. Run: node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules --pathname "src/utils" --file-types "typescript"
 2. Analyze provided code against rules
 3. Report violations or confirm compliance
 ```
@@ -148,7 +148,7 @@ You:
 User: Check if files in src/components violate any rules
 
 You:
-1. Run: node ${__dirname}/../scripts/rules-engine.js get-rules --pathname "src/components"
+1. Run: node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules --pathname "src/components"
 2. Identify all files in src/components (recursively)
 3. For each file:
    - Determine file type

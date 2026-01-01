@@ -65,22 +65,22 @@ Use the rules engine script:
 
 ```bash
 # Update rule content only
-node ${__dirname}/../scripts/rules-engine.js set-rule-by-id \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js set-rule-by-id \
   --id "<id>" \
   --rule "<new_rule>"
 
 # Update file types
-node ${__dirname}/../scripts/rules-engine.js set-rule-by-id \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js set-rule-by-id \
   --id "<id>" \
   --file-types "<new_file_types>"
 
 # Move to new pathname
-node ${__dirname}/../scripts/rules-engine.js set-rule-by-id \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js set-rule-by-id \
   --id "<id>" \
   --pathname "<new_pathname>"
 
 # Update multiple fields
-node ${__dirname}/../scripts/rules-engine.js set-rule-by-id \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js set-rule-by-id \
   --id "<id>" \
   --pathname "<new_pathname>" \
   --file-types "<new_file_types>" \

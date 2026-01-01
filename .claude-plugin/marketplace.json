@@ -1,6 +1,6 @@
 {
   "name": "file-writing-rules",
-  "description": "Marketplace for file-writing skills library",
+  "description": "Marketplace for file-writing-rules plugin - hierarchical coding standards enforcement",
   "owner": {
     "name": "Orr Bibring",
     "email": "orr@hey.com"
@@ -8,8 +8,8 @@
   "plugins": [
     {
       "name": "file-writing-rules",
-      "description": "Apply file writing rules based on file location.",
-      "version": "1.0.2",
+      "description": "Hierarchical file writing rules system for enforcing coding best practices based on directory structure and file types",
+      "version": "1.0.3",
       "source": "./",
       "author": {
         "name": "Orr Bibring",

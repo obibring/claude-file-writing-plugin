@@ -30,15 +30,15 @@ Use the rules engine script:
 
 ```bash
 # Basic query
-node ${__dirname}/../scripts/rules-engine.js get-rules --pathname "<pathname>"
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules --pathname "<pathname>"
 
 # With file types filter
-node ${__dirname}/../scripts/rules-engine.js get-rules \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules \
   --pathname "<pathname>" \
   --file-types "<file_types>"
 
 # With max age filter
-node ${__dirname}/../scripts/rules-engine.js get-rules \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules \
   --pathname "<pathname>" \
   --max-age "<max_age>"
 ```

@@ -1,10 +1,13 @@
 {
   "name": "file-writing-rules",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hierarchical file writing rules system for enforcing coding best practices based on directory structure and file types",
   "author": {
-    "name": "Claude Code User",
-    "email": ""
+    "name": "Orr Bibring",
+    "email": "orr@hey.com"
   },
-  "keywords": ["rules", "best-practices", "coding-standards", "file-conventions"]
+  "homepage": "https://github.com/obra/claude-file-writing-plugin",
+  "repository": "https://github.com/obra/claude-file-writing-plugin",
+  "license": "MIT",
+  "keywords": ["rules", "best-practices", "coding-standards", "file-conventions", "skills", "commands"]
 }

@@ -31,9 +31,35 @@ This plugin provides a sophisticated rules repository that:
 
 ## Installation
 
-1. Copy this plugin to your Claude Code plugins directory
+### Via Marketplace (Recommended)
+
+```
+/plugin install file-writing-rules
+```
+
+### Via GitHub
+
+```
+/plugin install https://github.com/obra/claude-file-writing-plugin
+```
+
+### Manual Installation
+
+1. Clone this repository to your Claude Code plugins directory:
+   ```bash
+   mkdir -p ~/.claude/plugins
+   git clone https://github.com/obra/claude-file-writing-plugin ~/.claude/plugins/file-writing-rules
+   ```
+
 2. Enable the plugin in Claude Code settings
-3. (Optional) Configure custom rules file location in `.claude/file-writing-rules.local.md`
+
+### Post-Installation
+
+(Optional) Configure custom rules file location in `.claude/file-writing-rules.local.md` in your project root.
+
+### Troubleshooting
+
+If commands fail with "Cannot find module" errors, see [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for solutions to known issues with `CLAUDE_PLUGIN_ROOT`.
 
 ## Configuration
 
@@ -114,8 +140,17 @@ When multiple rules apply, all are enforced (deepest takes precedence for confli
 
 ## Requirements
 
-- Node.js 18+
+- Node.js 14+ (for running the rules engine script)
 - Claude Code (latest version)
+- Basic familiarity with bash/shell commands
+
+## Troubleshooting
+
+See [TROUBLESHOOTING.md](./TROUBLESHOOTING.md) for common issues and solutions, including:
+- CLAUDE_PLUGIN_ROOT not found errors
+- Permission issues with scripts
+- Plugin not found after installation
+- Rules file creation issues
 
 ## License
 

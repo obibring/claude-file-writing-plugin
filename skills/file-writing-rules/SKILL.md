@@ -30,11 +30,11 @@ Use this skill **before** writing or planning any code file. Trigger conditions:
 
 ```bash
 # Get rules for pathname (automatically filters by precedence)
-node ${__dirname}/../../scripts/rules-engine.js get-rules \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules \
   --pathname "<relative_path_to_file>"
 
 # With file type filtering
-node ${__dirname}/../../scripts/rules-engine.js get-rules \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules \
   --pathname "<relative_path_to_file>" \
   --file-types "<file_type>"
 ```
@@ -81,7 +81,7 @@ Identify from conversation:
 Execute bash command to retrieve rules:
 
 ```bash
-node ${__dirname}/../../scripts/rules-engine.js get-rules \
+node ${CLAUDE_PLUGIN_ROOT}/scripts/rules-engine.js get-rules \
   --pathname "apps/dashboard" \
   --file-types "typescript"
 ```
