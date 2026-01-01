@@ -23,11 +23,27 @@ This plugin provides a sophisticated rules repository that:
 
 ### Skills
 
-- **file-writing-rules** - Automatically retrieves and applies applicable rules when writing or planning code
+The plugin provides four specialized skills, each with a specific purpose in the rule lifecycle:
+
+1. **file-writing-rules** - Retrieves and presents applicable rules before writing or planning code files (NOT for copying already-planned code)
+
+2. **managing-file-writing-rules** - Interactive rule management through conversation; checks rules BEFORE writing each file's contents to plan files; helps users keep rules current
+
+3. **enforcing-file-writing-rules** - MANDATORY before every Write/Edit tool call; automatically validates content against standards and fixes violations before writing to ensure all code adheres to project conventions
+
+4. **validating-file-writing-rules** - Audits files or directories against project rules to identify violations; provides systematic validation reports with specific details for each file
 
 ### Agents
 
 - **rule-validator** - Validates files or directories against applicable rules
+
+## How It Works
+
+The plugin follows a three-stage workflow:
+
+1. **Creation**: Users explicitly create rules through commands or conversational management
+2. **Enforcement**: Rules are automatically checked and applied before writing any code
+3. **Validation**: Existing code can be audited for compliance with project standards
 
 ## Installation
 
@@ -105,8 +121,9 @@ Every rule contains:
 
 ## Usage Examples
 
-### Adding a Rule
+### Creating Rules
 
+#### Interactive Mode
 ```
 /file-writing-rules:add-rule
 ```
@@ -116,18 +133,42 @@ Interactive prompts will guide you through:
 2. Enter file types (optional, e.g., `typescript javascript`)
 3. Enter rule content
 
-### Getting Rules
+#### With Parameters
+```
+/file-writing-rules:add-rule pathname=src/components file_types=typescript rule="All components must use named exports"
+```
+
+### Querying Rules
 
 ```
 /file-writing-rules:get-rules pathname=apps/dashboard file_types=typescript
 ```
 
-### Validating Code
+### Managing Rules in Conversation
 
-Invoke the rule-validator agent:
+Simply mention rules in natural language:
 ```
-Check if the files in apps/dashboard violate any rules
+"What coding standards apply to src/api files?"
+"Update the rule for React components to require PropTypes"
+"Show me all rules that affect TypeScript files"
 ```
+
+The `managing-file-writing-rules` skill will handle these requests interactively.
+
+### Automatic Enforcement
+
+Rules are automatically enforced when Claude writes code. The `enforcing-file-writing-rules` skill runs before every Write/Edit operation to ensure compliance.
+
+### Validating Existing Code
+
+Ask Claude to check compliance:
+```
+"Check if the files in apps/dashboard violate any rules"
+"Validate src/components against project standards"
+"Are there any rule violations in the api directory?"
+```
+
+Or invoke the rule-validator agent directly for systematic audits.
 
 ## Rule Precedence
 
@@ -137,6 +178,25 @@ Rules apply hierarchically from root to deepest directory:
 3. Current directory rules
 
 When multiple rules apply, all are enforced (deepest takes precedence for conflicts).
+
+## What's New in v1.1.0
+
+Version 1.1.0 introduces a major architectural shift from pattern-driven to user-controlled rule creation:
+
+### Key Changes
+
+- **User-Controlled Creation**: Rules are only created when users explicitly request them (no automatic suggestions)
+- **Expanded Skill System**: Four specialized skills instead of one, each handling a specific phase of the rule lifecycle
+- **Mandatory Enforcement**: The `enforcing-file-writing-rules` skill ensures all code adheres to standards before writing
+- **Planning Integration**: The `managing-file-writing-rules` skill checks rules BEFORE writing file contents to plan files
+- **Systematic Validation**: The `validating-file-writing-rules` skill provides detailed compliance auditing
+
+### Migration from 1.0.x
+
+If you're upgrading from version 1.0.x:
+- Your existing rules in `.claude/file-writing-rules.generated.json` remain compatible
+- The new skills work automatically - no configuration changes needed
+- Pattern-driven rule suggestions have been removed in favor of explicit user control
 
 ## Requirements
 
