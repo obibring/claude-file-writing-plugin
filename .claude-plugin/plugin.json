@@ -1,0 +1,10 @@
+{
+  "name": "file-writing-rules",
+  "version": "0.1.0",
+  "description": "Hierarchical file writing rules system for enforcing coding best practices based on directory structure and file types",
+  "author": {
+    "name": "Claude Code User",
+    "email": ""
+  },
+  "keywords": ["rules", "best-practices", "coding-standards", "file-conventions"]
+}

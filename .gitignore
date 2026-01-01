@@ -1,0 +1,16 @@
+# Settings files (user-specific configuration)
+.claude/*.local.md
+
+# Generated rules files
+.claude/*.generated.json
+
+# Node modules (if any dependencies added)
+node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
