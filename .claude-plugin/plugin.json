@@ -6,8 +6,8 @@
     "name": "Orr Bibring",
     "email": "orr@hey.com"
   },
-  "homepage": "https://github.com/obra/claude-file-writing-plugin",
-  "repository": "https://github.com/obra/claude-file-writing-plugin",
+  "homepage": "https://github.com/obibring/claude-file-writing-plugin",
+  "repository": "https://github.com/obibring/claude-file-writing-plugin",
   "license": "MIT",
   "keywords": ["rules", "best-practices", "coding-standards", "file-conventions", "skills", "commands"]
 }
