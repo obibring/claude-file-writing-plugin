@@ -68,11 +68,42 @@ function groupBy(items, key) {
   }, {});
 }
 
+/**
+ * Finds the nearest directory containing a .git folder by walking up from the starting directory
+ * @param {string} startDir - Directory to start searching from (defaults to process.cwd())
+ * @returns {string} Path to the directory containing .git, or startDir if not found
+ */
+function findGitRoot(startDir = process.cwd()) {
+  const fs = require('fs');
+  const path = require('path');
+
+  let currentDir = startDir;
+
+  // Walk up the directory tree
+  while (true) {
+    const gitPath = path.join(currentDir, '.git');
+
+    if (fs.existsSync(gitPath)) {
+      return currentDir;
+    }
+
+    const parentDir = path.dirname(currentDir);
+
+    // If we've reached the root of the filesystem, stop
+    if (parentDir === currentDir) {
+      return startDir; // Fallback to starting directory
+    }
+
+    currentDir = parentDir;
+  }
+}
+
 // Export utilities for use in other scripts
 module.exports = {
   toCamelCase,
   safeParse,
   delay,
   isValidString,
-  groupBy
+  groupBy,
+  findGitRoot
 };

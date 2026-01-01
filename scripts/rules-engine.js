@@ -22,29 +22,36 @@ const path = require('path');
 // ============================================================================
 
 /**
- * Read settings from .claude/file-writing-rules.local.md
+ * Finds the nearest directory containing a .git folder by walking up from the starting directory
+ */
+function findGitRoot(startDir = process.cwd()) {
+  let currentDir = startDir;
+
+  // Walk up the directory tree
+  while (true) {
+    const gitPath = path.join(currentDir, '.git');
+
+    if (fs.existsSync(gitPath)) {
+      return currentDir;
+    }
+
+    const parentDir = path.dirname(currentDir);
+
+    // If we've reached the root of the filesystem, stop
+    if (parentDir === currentDir) {
+      return startDir; // Fallback to starting directory
+    }
+
+    currentDir = parentDir;
+  }
+}
+
+/**
+ * Get settings - always uses .claude/file-writing-rules.generated.json in the nearest git root
  */
 function getSettings() {
-  const settingsPath = path.join(process.cwd(), '.claude', 'file-writing-rules.local.md');
-  const defaultPath = path.join(process.cwd(), '.claude', 'file-writing-rules.generated.json');
-
-  let rulesFilePath = defaultPath;
-
-  if (fs.existsSync(settingsPath)) {
-    try {
-      const content = fs.readFileSync(settingsPath, 'utf8');
-      const match = content.match(/rules-file-path:\s*(.+)/);
-      if (match) {
-        const configuredPath = match[1].trim();
-        // Resolve relative to project root
-        rulesFilePath = path.isAbsolute(configuredPath)
-          ? configuredPath
-          : path.join(process.cwd(), configuredPath);
-      }
-    } catch (err) {
-      // Fail silently, use default
-    }
-  }
+  const gitRoot = findGitRoot();
+  const rulesFilePath = path.join(gitRoot, '.claude', 'file-writing-rules.generated.json');
 
   return { rulesFilePath };
 }

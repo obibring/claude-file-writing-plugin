@@ -60,7 +60,7 @@ The plugin follows a three-stage workflow:
 ### Via GitHub
 
 ```
-/plugin install https://github.com/obra/claude-file-writing-plugin
+/plugin install https://github.com/obibring/claude-file-writing-plugin
 ```
 
 ### Manual Installation
@@ -68,14 +68,14 @@ The plugin follows a three-stage workflow:
 1. Clone this repository to your Claude Code plugins directory:
    ```bash
    mkdir -p ~/.claude/plugins
-   git clone https://github.com/obra/claude-file-writing-plugin ~/.claude/plugins/file-writing-rules
+   git clone https://github.com/obibring/claude-file-writing-plugin ~/.claude/plugins/file-writing-rules
    ```
 
 2. Enable the plugin in Claude Code settings
 
 ### Post-Installation
 
-(Optional) Configure custom rules file location in `.claude/file-writing-rules.local.md` in your project root.
+The plugin automatically stores rules in `.claude/file-writing-rules.generated.json` within the nearest directory containing a `.git` folder.
 
 ### Troubleshooting
 
@@ -83,15 +83,9 @@ If commands fail with "Cannot find module" errors, see [TROUBLESHOOTING.md](./TR
 
 ## Configuration
 
-Create `.claude/file-writing-rules.local.md` in your project root:
+**Storage location**: `.claude/file-writing-rules.generated.json` in the nearest git root directory.
 
-```markdown
-# File Writing Rules Configuration
-
-rules-file-path: .claude/custom-rules.generated.json
-```
-
-**Default storage location**: `.claude/file-writing-rules.generated.json`
+The plugin automatically finds the nearest parent directory containing a `.git` folder and stores rules in the `.claude` subdirectory within that git root.
 
 ## Rule Structure
 

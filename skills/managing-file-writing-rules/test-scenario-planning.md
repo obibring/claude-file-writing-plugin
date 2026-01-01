@@ -3,7 +3,7 @@
 ## Scenario Setup
 
 **Context:**
-- Project has file writing rules defined in `.claude/file-writing-rules/`
+- Project has file writing rules defined in `.claude/file-writing-rules.generated.json` in the nearest git root
 - Rules exist for `src/components/`: "All React components must use named exports only. No default exports."
 - Rules exist for `src/api/`: "API endpoints must include comprehensive error handling with typed error responses"
 
